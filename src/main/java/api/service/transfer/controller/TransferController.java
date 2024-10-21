@@ -21,6 +21,11 @@ public class TransferController {
     @Autowired
     private TransferService transferService;
 
+    @GetMapping("/health")
+    public ResponseEntity<String> healthCheck() {
+        return ResponseEntity.ok("Transfer API is up and running");
+    }
+
     @Operation(summary = "Create a new transfer", description = "Creates a new transfer and initiates the transfer process")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Transfer created successfully",
